@@ -1,0 +1,5 @@
+{"ss":1.0,"pre_vf":"crop=864:1536:50:303,",
+ "layout":{"date_y":705,"date_size":46,"en_y":780,"en_size":56,"h1_y":922,"h2_y":1064,"h_size":124,"h_track":4,"h_xb":true,"venue_y":1160,"venue_size":48,"ink_y0":620,"ink_y1":1200},
+ "button":{"w":620,"h":124,"size":46,"bg":[42,36,32],"fg":[255,250,242],"cy":1528,"t_in":6.1},
+ "mask":{"lum_lo":0.60,"lum_hi":0.74,"sat_lo":0.10,"sat_hi":0.18,"erode":5,"blur":2.0},
+ "ink_opacity":0.93,"fps":24,"snap":[96,150,200]}
