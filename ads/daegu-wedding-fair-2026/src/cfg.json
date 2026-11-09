@@ -1,5 +1,11 @@
 {"ss":1.0,"pre_vf":"crop=864:1536:50:303,",
- "layout":{"date_y":705,"date_size":46,"en_y":780,"en_size":56,"h1_y":922,"h2_y":1064,"h_size":124,"h_track":4,"h_xb":true,"venue_y":1160,"venue_size":48,"ink_y0":620,"ink_y1":1200},
- "button":{"w":620,"h":124,"size":46,"bg":[42,36,32],"fg":[255,250,242],"cy":1528,"t_in":6.1},
+ "lines":[
+  {"text":"11월 21일(토) – 22일(일)","weight":"SemiBold","size":46,"y":712,"track":-2},
+  {"text":"Daegu Wedding Fair","weight":"Medium","size":40,"y":778,"track":-1.5},
+  {"text":"대구","weight":"Bold","size":136,"y":926,"track":-7},
+  {"text":"웨딩박람회","weight":"Bold","size":136,"y":1068,"track":-7},
+  {"text":"EXCO 인터불고호텔","weight":"SemiBold","size":48,"y":1160,"track":-2}],
+ "layout":{"ink_y0":620,"ink_y1":1200},
+ "button":{"w":620,"h":124,"size":46,"track":-1.5,"bg":[42,36,32],"fg":[255,250,242],"cy":1528,"t_in":6.1},
  "mask":{"lum_lo":0.60,"lum_hi":0.74,"sat_lo":0.10,"sat_hi":0.18,"erode":5,"blur":2.0},
- "ink_opacity":0.93,"fps":24,"snap":[96,150,200]}
+ "ink_opacity":0.93,"fps":24,"snap":[96,200]}

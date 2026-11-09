@@ -32,12 +32,9 @@ def ctext(y, txt, path, size, tracking=0):
         d.text((W * SS / 2, y * SS), txt, font=f, fill=255, anchor="ms")
 
 L = CFG["layout"]
-ctext(L["date_y"], "11월 21일(토) – 22일(일)", F_MJ_B, L["date_size"])
-ctext(L["en_y"], "Daegu Wedding Fair", F_CG_I, L["en_size"])
-F_H = F_MJ_XB if L.get("h_xb") else F_MJ_B
-ctext(L["h1_y"], "대구", F_H, L["h_size"], tracking=L.get("h_track", 0))
-ctext(L["h2_y"], "웨딩박람회", F_H, L["h_size"], tracking=L.get("h_track", 0))
-ctext(L["venue_y"], "EXCO 인터불고호텔", F_MJ_B, L["venue_size"])
+PRE = lambda w: f"{FD}/package/dist/public/static/Pretendard-{w}.otf"
+for ln in CFG["lines"]:
+    ctext(ln["y"], ln["text"], PRE(ln["weight"]), ln["size"], tracking=ln.get("track", 0))
 ink = ink.resize((W, H), Image.LANCZOS).filter(ImageFilter.GaussianBlur(0.6))
 ink_a = np.asarray(ink, np.float32) / 255.0 * CFG.get("ink_opacity", 0.92)
 ink_col = np.array(INK, np.float32) / 255.0
@@ -60,9 +57,13 @@ bd.rounded_rectangle([pad * SS, pad * SS, (pad + bw) * SS, (pad + bh) * SS],
 bf = ImageFont.truetype(F_PRE, B["size"] * SS)
 label = "무료 사전 예약하기"
 arrow = "  →"
-tw = bd.textlength(label + arrow, font=bf)
-bd.text(((pad + bw / 2) * SS - tw / 2, (pad + bh / 2) * SS), label + arrow,
-        font=bf, fill=tuple(B["fg"]) + (255,), anchor="lm")
+bt = B.get("track", 0) * SS
+txt = label + arrow
+ws = [bd.textlength(c, font=bf) for c in txt]
+x = (pad + bw / 2) * SS - (sum(ws) + bt * (len(txt) - 1)) / 2
+for c, w_ in zip(txt, ws):
+    bd.text((x, (pad + bh / 2) * SS), c, font=bf, fill=tuple(B["fg"]) + (255,), anchor="lm")
+    x += w_ + bt
 btn = btn.resize((bw + 2 * pad, bh + 2 * pad), Image.LANCZOS)
 btn_np = np.asarray(btn, np.float32) / 255.0
 # button-shaped mask for the shine sweep
