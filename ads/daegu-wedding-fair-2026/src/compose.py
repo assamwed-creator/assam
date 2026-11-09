@@ -12,7 +12,7 @@ F_MJ_XB = f"{FD}/kf/package/src/NanumMyeongjoExtraBold.ttf"
 F_PRE = f"{FD}/package/dist/public/static/Pretendard-Bold.otf"
 F_PRE_SB = f"{FD}/package/dist/public/static/Pretendard-SemiBold.otf"
 F_CG_I = f"{FD}/package/files/cormorant-garamond-latin-600-italic.woff2"
-INK = (38, 33, 30)
+INK = tuple(CFG.get("ink", [38, 33, 30]))
 
 # ---------- print layer (ink on paper), grayscale alpha ----------
 SS = 2  # supersample
@@ -24,12 +24,12 @@ def ctext(y, txt, path, size, tracking=0):
     if tracking:
         widths = [d.textlength(c, font=f) for c in txt]
         total = sum(widths) + tracking * SS * (len(txt) - 1)
-        x = (W * SS - total) / 2
+        x = CFG.get("text_cx", W / 2) * SS - total / 2
         for c, w in zip(txt, widths):
             d.text((x, y * SS), c, font=f, fill=255, anchor="ls")
             x += w + tracking * SS
     else:
-        d.text((W * SS / 2, y * SS), txt, font=f, fill=255, anchor="ms")
+        d.text((CFG.get("text_cx", W / 2) * SS, y * SS), txt, font=f, fill=255, anchor="ms")
 
 L = CFG["layout"]
 PRE = lambda w: f"{FD}/package/dist/public/static/Pretendard-{w}.otf"
@@ -49,7 +49,7 @@ bd = ImageDraw.Draw(btn)
 sh = Image.new("RGBA", btn.size, (0, 0, 0, 0))
 ImageDraw.Draw(sh).rounded_rectangle(
     [pad * SS, (pad + 14) * SS, (pad + bw) * SS, (pad + bh + 14) * SS],
-    radius=bh * SS // 2, fill=(40, 25, 10, 110))
+    radius=bh * SS // 2, fill=tuple(B.get("shadow", [40, 25, 10, 110])))
 sh = sh.filter(ImageFilter.GaussianBlur(18 * SS))
 btn.alpha_composite(sh)
 bd.rounded_rectangle([pad * SS, pad * SS, (pad + bw) * SS, (pad + bh) * SS],
