@@ -1,0 +1,88 @@
+{
+ "ss": 0.5,
+ "pre_vf": "",
+ "text_cx": 560,
+ "ink": [
+  141,
+  24,
+  54
+ ],
+ "ink_opacity": 0.95,
+ "lines": [
+  {
+   "text": "11월 21일(토) – 22일(일)",
+   "weight": "SemiBold",
+   "size": 40,
+   "y": 805,
+   "track": -1.8
+  },
+  {
+   "text": "Daegu Wedding Fair",
+   "weight": "Medium",
+   "size": 34,
+   "y": 860,
+   "track": -1.2
+  },
+  {
+   "text": "대구",
+   "weight": "Bold",
+   "size": 122,
+   "y": 985,
+   "track": -6
+  },
+  {
+   "text": "웨딩박람회",
+   "weight": "Bold",
+   "size": 122,
+   "y": 1113,
+   "track": -6
+  },
+  {
+   "text": "EXCO 인터불고호텔",
+   "weight": "SemiBold",
+   "size": 42,
+   "y": 1192,
+   "track": -1.8
+  }
+ ],
+ "layout": {
+  "ink_y0": 740,
+  "ink_y1": 1230
+ },
+ "button": {
+  "w": 600,
+  "h": 120,
+  "size": 44,
+  "track": -1.5,
+  "bg": [
+   243,
+   235,
+   227
+  ],
+  "fg": [
+   90,
+   15,
+   28
+  ],
+  "shadow": [
+   0,
+   0,
+   0,
+   170
+  ],
+  "cy": 1448,
+  "t_in": 5.0
+ },
+ "mask": {
+  "lum_lo": 0.18,
+  "lum_hi": 0.3,
+  "sat_lo": 0.27,
+  "sat_hi": 0.34,
+  "erode": 5,
+  "blur": 2.0
+ },
+ "fps": 24,
+ "snap": [
+  200
+ ]
+}
